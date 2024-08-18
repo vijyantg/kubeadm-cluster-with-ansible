@@ -5,6 +5,7 @@
 <p align="center">
     Automate the provisioning of a bare-metal multi-node Kubernetes cluster with Ansible.
     Uses all the industry-standard tools for an enterprise-grade cluster.
+    Overview on how this cluster can be used for embeddings using GPU Nodes.
 </p>
 
 ## Table of Contents
@@ -12,6 +13,7 @@
 - **[Stack](#stack)**
 - **[Requirements](#requirements)**
 - **[Usage](#usage)**
+- **[GPU](#gpu-powered)**
 
 ## Stack
 - **Ubuntu**: Tested with Ubuntu 22.04
@@ -62,3 +64,15 @@ $ vi inventory/hosts.ini
 ```
 $ ansible-playbook -i inventory/hosts.ini -K playbooks/cluster.yaml
 ```
+## GPU Powered
+
+1. Preparing for GPU Workload Deployment
+To deploy GPU workloads on a Kubernetes cluster, you need to set up the nodes to recognize and utilize GPU resources effectively. This [GPU installation](https://docs.deep-hybrid-datacloud.eu/en/latest/technical/kubernetes/gpu-kubernetes-ubuntu.html) outlines the steps to install GPU drivers and necessary tools ensuring your Kubernetes cluster is prepared for GPU-based workloads.
+
+2. Scaling Considerations:
+Use Kubernetes' Horizontal Pod Autoscaler to scale the deployment based on CPU/GPU utilization.
+Ensure that the cluster has enough GPU nodes to handle scaling efficiently.
+
+3. Performance Optimization:
+Optimize containers for GPU usage by fine-tuning the code and selecting appropriate libraries that utilize GPU acceleration.
+Consider deploying a GPU monitoring stack (e.g., Prometheus and Grafana) to visualize and optimize GPU performance in real-time.
