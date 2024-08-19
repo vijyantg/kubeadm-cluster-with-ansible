@@ -30,13 +30,18 @@
 
 1. A Linux machine with a superuser privileges and pre-installed Ansible.
 ```
-$ run sh ./setup-user-ansible.sh 
+$ run ./setup-user-ansible.sh 
 ```
 2. Ubuntu machines that are intended to become part of the new Kubernetes cluster.
    Make sure that your SSH key is already installed on the machines by running the following command:
 ```
+$ ssh@<vm-machines> and generate ssh-keygen
 $ ssh-copy-id <The remote username>@<The IPv4 address of the remote machine>
-  run sh ./setup-user-ansible.sh
+```
+3. Install Ansible to remote machines
+```
+$ sudo apt-get update
+$ sudo apt-get install -y ansible
 ```
 ## Usage
 
