@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x 
+set -e
 # Function to update the hosts.ini file
 update_hosts_ini() {
     local username="$1"
